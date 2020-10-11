@@ -1,0 +1,604 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F409D3EB252FF33D008F8908 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409D3EA252FF33D008F8908 /* AppDelegate.swift */; };
+		F409D3ED252FF33D008F8908 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409D3EC252FF33D008F8908 /* SceneDelegate.swift */; };
+		F409D3EF252FF33D008F8908 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409D3EE252FF33D008F8908 /* ViewController.swift */; };
+		F409D3F2252FF33D008F8908 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F409D3F0252FF33D008F8908 /* Main.storyboard */; };
+		F409D3F4252FF33F008F8908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F409D3F3252FF33F008F8908 /* Assets.xcassets */; };
+		F409D3F7252FF33F008F8908 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F409D3F5252FF33F008F8908 /* LaunchScreen.storyboard */; };
+		F409D4512530344E008F8908 /* UIScrollView+Refresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409D4502530344E008F8908 /* UIScrollView+Refresher.swift */; };
+		F409D460253047A0008F8908 /* EasyActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409D45F253047A0008F8908 /* EasyActivityIndicatorView.swift */; };
+		F409D46525305AA3008F8908 /* EasyRefresherActivityHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409D46425305AA3008F8908 /* EasyRefresherActivityHeader.swift */; };
+		F4B30EE625318EAF0033FA88 /* EasyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B30EE525318EAF0033FA88 /* EasyTimer.swift */; };
+		F4B30EEE2531998B0033FA88 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B30EED2531998B0033FA88 /* TestView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F409D3FE252FF33F008F8908 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F409D3DF252FF33D008F8908 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F409D3E6252FF33D008F8908;
+			remoteInfo = EasyRefresher;
+		};
+		F409D409252FF33F008F8908 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F409D3DF252FF33D008F8908 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F409D3E6252FF33D008F8908;
+			remoteInfo = EasyRefresher;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F409D3E7252FF33D008F8908 /* EasyRefresher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyRefresher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F409D3EA252FF33D008F8908 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F409D3EC252FF33D008F8908 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F409D3EE252FF33D008F8908 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F409D3F1252FF33D008F8908 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F409D3F3252FF33F008F8908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F409D3F6252FF33F008F8908 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F409D3F8252FF33F008F8908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F409D3FD252FF33F008F8908 /* EasyRefresherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyRefresherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F409D408252FF33F008F8908 /* EasyRefresherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyRefresherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F409D4502530344E008F8908 /* UIScrollView+Refresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Refresher.swift"; sourceTree = "<group>"; };
+		F409D45F253047A0008F8908 /* EasyActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyActivityIndicatorView.swift; sourceTree = "<group>"; };
+		F409D46425305AA3008F8908 /* EasyRefresherActivityHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRefresherActivityHeader.swift; sourceTree = "<group>"; };
+		F4B30EE525318EAF0033FA88 /* EasyTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyTimer.swift; sourceTree = "<group>"; };
+		F4B30EED2531998B0033FA88 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F409D3E4252FF33D008F8908 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F409D3FA252FF33F008F8908 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F409D405252FF33F008F8908 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F409D3DE252FF33D008F8908 = {
+			isa = PBXGroup;
+			children = (
+				F409D3E9252FF33D008F8908 /* EasyRefresher */,
+				F409D3E8252FF33D008F8908 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F409D3E8252FF33D008F8908 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F409D3E7252FF33D008F8908 /* EasyRefresher.app */,
+				F409D3FD252FF33F008F8908 /* EasyRefresherTests.xctest */,
+				F409D408252FF33F008F8908 /* EasyRefresherUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F409D3E9252FF33D008F8908 /* EasyRefresher */ = {
+			isa = PBXGroup;
+			children = (
+				F4B30EE425318E620033FA88 /* EasyTimer */,
+				F409D423252FF38B008F8908 /* EasyRefresher */,
+				F409D3EA252FF33D008F8908 /* AppDelegate.swift */,
+				F409D3EC252FF33D008F8908 /* SceneDelegate.swift */,
+				F409D3EE252FF33D008F8908 /* ViewController.swift */,
+				F409D3F0252FF33D008F8908 /* Main.storyboard */,
+				F409D3F3252FF33F008F8908 /* Assets.xcassets */,
+				F409D3F5252FF33F008F8908 /* LaunchScreen.storyboard */,
+				F409D3F8252FF33F008F8908 /* Info.plist */,
+				F4B30EED2531998B0033FA88 /* TestView.swift */,
+			);
+			path = EasyRefresher;
+			sourceTree = "<group>";
+		};
+		F409D423252FF38B008F8908 /* EasyRefresher */ = {
+			isa = PBXGroup;
+			children = (
+				F409D4502530344E008F8908 /* UIScrollView+Refresher.swift */,
+				F409D45F253047A0008F8908 /* EasyActivityIndicatorView.swift */,
+				F409D46425305AA3008F8908 /* EasyRefresherActivityHeader.swift */,
+			);
+			path = EasyRefresher;
+			sourceTree = "<group>";
+		};
+		F4B30EE425318E620033FA88 /* EasyTimer */ = {
+			isa = PBXGroup;
+			children = (
+				F4B30EE525318EAF0033FA88 /* EasyTimer.swift */,
+			);
+			path = EasyTimer;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F409D3E6252FF33D008F8908 /* EasyRefresher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F409D411252FF33F008F8908 /* Build configuration list for PBXNativeTarget "EasyRefresher" */;
+			buildPhases = (
+				F409D3E3252FF33D008F8908 /* Sources */,
+				F409D3E4252FF33D008F8908 /* Frameworks */,
+				F409D3E5252FF33D008F8908 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EasyRefresher;
+			productName = EasyRefresher;
+			productReference = F409D3E7252FF33D008F8908 /* EasyRefresher.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F409D3FC252FF33F008F8908 /* EasyRefresherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F409D414252FF33F008F8908 /* Build configuration list for PBXNativeTarget "EasyRefresherTests" */;
+			buildPhases = (
+				F409D3F9252FF33F008F8908 /* Sources */,
+				F409D3FA252FF33F008F8908 /* Frameworks */,
+				F409D3FB252FF33F008F8908 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F409D3FF252FF33F008F8908 /* PBXTargetDependency */,
+			);
+			name = EasyRefresherTests;
+			productName = EasyRefresherTests;
+			productReference = F409D3FD252FF33F008F8908 /* EasyRefresherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F409D407252FF33F008F8908 /* EasyRefresherUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F409D417252FF33F008F8908 /* Build configuration list for PBXNativeTarget "EasyRefresherUITests" */;
+			buildPhases = (
+				F409D404252FF33F008F8908 /* Sources */,
+				F409D405252FF33F008F8908 /* Frameworks */,
+				F409D406252FF33F008F8908 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F409D40A252FF33F008F8908 /* PBXTargetDependency */,
+			);
+			name = EasyRefresherUITests;
+			productName = EasyRefresherUITests;
+			productReference = F409D408252FF33F008F8908 /* EasyRefresherUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F409D3DF252FF33D008F8908 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1200;
+				LastUpgradeCheck = 1200;
+				TargetAttributes = {
+					F409D3E6252FF33D008F8908 = {
+						CreatedOnToolsVersion = 12.0;
+					};
+					F409D3FC252FF33F008F8908 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = F409D3E6252FF33D008F8908;
+					};
+					F409D407252FF33F008F8908 = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = F409D3E6252FF33D008F8908;
+					};
+				};
+			};
+			buildConfigurationList = F409D3E2252FF33D008F8908 /* Build configuration list for PBXProject "EasyRefresher" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F409D3DE252FF33D008F8908;
+			productRefGroup = F409D3E8252FF33D008F8908 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F409D3E6252FF33D008F8908 /* EasyRefresher */,
+				F409D3FC252FF33F008F8908 /* EasyRefresherTests */,
+				F409D407252FF33F008F8908 /* EasyRefresherUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F409D3E5252FF33D008F8908 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F409D3F7252FF33F008F8908 /* LaunchScreen.storyboard in Resources */,
+				F409D3F4252FF33F008F8908 /* Assets.xcassets in Resources */,
+				F409D3F2252FF33D008F8908 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F409D3FB252FF33F008F8908 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F409D406252FF33F008F8908 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F409D3E3252FF33D008F8908 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F409D4512530344E008F8908 /* UIScrollView+Refresher.swift in Sources */,
+				F409D460253047A0008F8908 /* EasyActivityIndicatorView.swift in Sources */,
+				F409D3EF252FF33D008F8908 /* ViewController.swift in Sources */,
+				F409D3EB252FF33D008F8908 /* AppDelegate.swift in Sources */,
+				F4B30EEE2531998B0033FA88 /* TestView.swift in Sources */,
+				F4B30EE625318EAF0033FA88 /* EasyTimer.swift in Sources */,
+				F409D46525305AA3008F8908 /* EasyRefresherActivityHeader.swift in Sources */,
+				F409D3ED252FF33D008F8908 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F409D3F9252FF33F008F8908 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F409D404252FF33F008F8908 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F409D3FF252FF33F008F8908 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F409D3E6252FF33D008F8908 /* EasyRefresher */;
+			targetProxy = F409D3FE252FF33F008F8908 /* PBXContainerItemProxy */;
+		};
+		F409D40A252FF33F008F8908 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F409D3E6252FF33D008F8908 /* EasyRefresher */;
+			targetProxy = F409D409252FF33F008F8908 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F409D3F0252FF33D008F8908 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F409D3F1252FF33D008F8908 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F409D3F5252FF33F008F8908 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F409D3F6252FF33F008F8908 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F409D40F252FF33F008F8908 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F409D410252FF33F008F8908 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F409D412252FF33F008F8908 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LR5U6RACV8;
+				INFOPLIST_FILE = EasyRefresher/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zhouwk.EasyRefresher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F409D413252FF33F008F8908 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LR5U6RACV8;
+				INFOPLIST_FILE = EasyRefresher/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zhouwk.EasyRefresher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F409D415252FF33F008F8908 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EasyRefresherTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zhouwk.EasyRefresherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyRefresher.app/EasyRefresher";
+			};
+			name = Debug;
+		};
+		F409D416252FF33F008F8908 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EasyRefresherTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zhouwk.EasyRefresherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EasyRefresher.app/EasyRefresher";
+			};
+			name = Release;
+		};
+		F409D418252FF33F008F8908 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EasyRefresherUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zhouwk.EasyRefresherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EasyRefresher;
+			};
+			name = Debug;
+		};
+		F409D419252FF33F008F8908 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = EasyRefresherUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = zhouwk.EasyRefresherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EasyRefresher;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F409D3E2252FF33D008F8908 /* Build configuration list for PBXProject "EasyRefresher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F409D40F252FF33F008F8908 /* Debug */,
+				F409D410252FF33F008F8908 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F409D411252FF33F008F8908 /* Build configuration list for PBXNativeTarget "EasyRefresher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F409D412252FF33F008F8908 /* Debug */,
+				F409D413252FF33F008F8908 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F409D414252FF33F008F8908 /* Build configuration list for PBXNativeTarget "EasyRefresherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F409D415252FF33F008F8908 /* Debug */,
+				F409D416252FF33F008F8908 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F409D417252FF33F008F8908 /* Build configuration list for PBXNativeTarget "EasyRefresherUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F409D418252FF33F008F8908 /* Debug */,
+				F409D419252FF33F008F8908 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F409D3DF252FF33D008F8908 /* Project object */;
+}
