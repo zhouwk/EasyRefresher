@@ -11,6 +11,8 @@ class ViewController: UIViewController {
     lazy var tableView = UITableView(frame: view.bounds, style: .plain)
     
     
+    var cellCount = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.frame.origin.y = 50
@@ -20,46 +22,22 @@ class ViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
 
-        tableView.headerRefesher = EasyRefresherActivityHeader(frame: .zero)
-        
-        
-//        tableView.isHidden = true
-        
-        
-        DispatchQueue.main.async {
-            self.tableView.headerRefesher?.beginRefresh()
-        }
+        tableView.headerRefesher = EasyRefresherActivityHeader({
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.tableView.headerRefesher?.endRefreshing()
+                self.cellCount += 1
+                self.tableView.reloadData()
+            }
+        })
+        tableView.headerRefesher?.beginRefreshing()
     }
     
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        
-        let testView = view.subviews.first { $0 is TestView }
-//        print(testView)
-        
-//        testView?.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
-        
-        
-        let anim = CAKeyframeAnimation(keyPath: "transform")
-        anim.values = [
-            CATransform3DMakeRotation(0, 0, 0, 1),
-            CATransform3DMakeRotation(CGFloat.pi * 2 / 3, 0, 0, 1),
-            CATransform3DMakeRotation(CGFloat.pi * 4 / 3, 0, 0, 1),
-            CATransform3DMakeRotation(CGFloat.pi * 2, 0, 0, 1),
-        ]
-        anim.duration = 2
-        anim.repeatCount = Float.infinity
-        anim.fillMode = .forwards
-        anim.isRemovedOnCompletion = false
-        testView?.layer.add(anim, forKey: "dd")
-    }
 }
 
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        20
+        cellCount
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

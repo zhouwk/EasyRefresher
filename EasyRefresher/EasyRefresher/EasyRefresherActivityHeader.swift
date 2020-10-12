@@ -7,10 +7,13 @@
 
 import UIKit
 
+/**
+ * UIView.animate 在动画过程中默认已关闭了所有UI交互
+ */
 
 
-enum EasyRefresherState {
-    case idl, pulling, willRefreshing, refreshing
+enum EasyRefresherstate {
+    case idle, pulling, willRefreshing, refreshing
 }
 
 /**
@@ -29,6 +32,8 @@ enum EasyRefresherState {
 let EasyRefresherDefaultHeight = CGFloat(54)
 let EasyActivityDefaultHeight = CGFloat(30)
 
+typealias EasyRefresherAction = () -> ()
+
 class EasyRefresherActivityHeader: UIView {
 
     lazy var activityView: EasyActivityIndicatorView = {
@@ -38,10 +43,30 @@ class EasyRefresherActivityHeader: UIView {
     }()
     
     var offsetYBeforeDragging: CGFloat = 0
+    var insetTBeforeRefreshing: CGFloat = 0
     weak var scrollView: UIScrollView?
     let activityViewBottom = EasyRefresherDefaultHeight - EasyActivityDefaultHeight
+        
+    let action: EasyRefresherAction
     
-    var state = EasyRefresherState.idl
+    var state = EasyRefresherstate.idle {
+        didSet {
+            if state == .refreshing {
+                action()
+            }
+        }
+    }
+    
+    
+    init(_ action: @escaping EasyRefresherAction) {
+        self.action = action
+        super.init(frame: .zero)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     override func didMoveToSuperview() {
         superview?.didMoveToSuperview()
@@ -49,20 +74,27 @@ class EasyRefresherActivityHeader: UIView {
         addObserves()
     }
     
-    func beginRefresh() {
+    /// 进入刷新状态
+    func beginRefreshing() {
         if state == .refreshing {
             return
         }
+        state = .refreshing
         UIView.animate(withDuration: 0.25) {
-            self.scrollView?.contentInset.top += self.frame.height
-            self.scrollView?.contentOffset.y -= EasyRefresherDefaultHeight
-        } completion: { (_) in
-            self.state = .refreshing
-            UIView.animate(withDuration: 0.25) {
-//                self.scrollView?.contentInset.top += self.frame.height
-            } completion: { (_) in
-                
-            }
+            self.scrollView!.contentInset.top = self.insetTBeforeRefreshing + EasyRefresherDefaultHeight
+            self.updateStateUI()
+        }
+    }
+
+    /// 结束刷新状态
+    func endRefreshing() {
+        if state != .refreshing {
+            return
+        }
+        state = .idle
+        UIView.animate(withDuration: 0.25) {
+            self.scrollView!.contentInset.top = self.insetTBeforeRefreshing
+            self.updateStateUI()
         }
     }
     
@@ -71,6 +103,8 @@ class EasyRefresherActivityHeader: UIView {
         scrollView = superview as? UIScrollView
         let isScrollView = superview == nil || superview != nil && superview is UIScrollView
         assert(isScrollView, "必须是UIScrollView(或者子类)")
+        insetTBeforeRefreshing = scrollView!.contentInset.top
+        frame.origin.y = -insetTBeforeRefreshing
     }
     
     /// 注册监听
@@ -94,7 +128,7 @@ class EasyRefresherActivityHeader: UIView {
         }
         if keyPath == "state" {
             let state = UIGestureRecognizer.State(rawValue: change![.newKey] as! Int)!
-            panSateDidChange(state)
+            panStateDidChange(state)
             return
         }
     }
@@ -104,51 +138,69 @@ class EasyRefresherActivityHeader: UIView {
         if state == .refreshing {
             return
         }
+        insetTBeforeRefreshing = scrollView!.contentInset.top
         let scrolled = offset.y - offsetYBeforeDragging
-        print(offset.y, offsetYBeforeDragging)
-        var scale: CGFloat = 0
-        if scrolled <= 0 {
-            frame.size.height = min(-scrolled, EasyRefresherDefaultHeight)
-            if -scrolled > activityViewBottom {
-                scale = (-scrolled - activityViewBottom) / EasyActivityDefaultHeight
-                if scale > 1 {
-                    scale = 1
-                }
-            }
-            if -scrolled >= EasyRefresherDefaultHeight {
-                state = .willRefreshing
-            } else {
-                state = .pulling
-            }
+        if -scrolled >= EasyRefresherDefaultHeight {
+            state = .willRefreshing
+        } else if -scrolled >= 0 {
+            state = .pulling
         } else {
-            frame.size.height = EasyRefresherDefaultHeight
-            state = .idl
+            state = .idle
         }
-        activityView.drawUsingScale(scale)
-        frame.origin.y = max(scrolled, -frame.height) + offsetYBeforeDragging
+        updateStateUI()
+    }
+    
+    /// 状态发生改变，更新UI
+    func updateStateUI() {
+        let scrolled = scrollView!.contentOffset.y - offsetYBeforeDragging
+        let activityScaled: CGFloat
+        let selfY: CGFloat
+        let selfH: CGFloat
+
+        if state == .idle {
+            activityScaled = 0
+            selfY = -scrollView!.contentInset.top
+            selfH = 0
+        } else if state == .pulling {
+            if -scrolled <= activityViewBottom {
+                activityScaled = 0
+            } else {
+                activityScaled = (-scrolled - activityViewBottom) / EasyActivityDefaultHeight
+            }
+            selfY = scrolled - scrollView!.contentInset.top
+            selfH = -scrolled
+        } else {
+            activityScaled = 1
+            selfY = -EasyRefresherDefaultHeight - insetTBeforeRefreshing
+            selfH = EasyRefresherDefaultHeight
+        }
+        activityView.frame.size = CGSize(width: EasyActivityDefaultHeight * activityScaled,
+                                         height: EasyActivityDefaultHeight * activityScaled)
+        activityView.drawUsingScale(activityScaled)
+        frame.size.height = selfH
+        frame.origin.y = selfY
+    }
+    
+    
+    func updateSelfFrame() {
+        
     }
     
     /// scrollView frame 发生改变
     func scrollViewFrameDidChange(_ sFrame: CGRect) {
-        frame.size.width = sFrame.width
+        frame.size = CGSize(width: sFrame.width, height: EasyRefresherDefaultHeight)
     }
     
     /// scrollView 拖拽手势状态 发生改变
-    func panSateDidChange(_ state: UIGestureRecognizer.State) {
+    func panStateDidChange(_ state: UIGestureRecognizer.State) {
         if state == .began {
             offsetYBeforeDragging = scrollView!.contentOffset.y
         } else if state == .ended {
             if self.state == .willRefreshing {
-                self.state = .refreshing
-                UIView.animate(withDuration: 0.25) {
-                    self.scrollView?.contentInset.top += self.frame.height
-                } completion: { (_) in
-                    
-                }
+                self.beginRefreshing()
             }
         }
     }
-    
     
     override func layoutSubviews() {
         super.layoutSubviews()
