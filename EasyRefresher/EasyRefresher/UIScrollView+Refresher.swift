@@ -14,7 +14,7 @@ var EASY_FOOTER_REFRESH_KEY = 1
 
 
 extension UIScrollView {
-    var headerRefesher: EasyRefresherActivityHeader? {
+    var headerRefesher: EasyRefresherHeader? {
         set {
             setHeaderRefreher(newValue)
         }
@@ -24,7 +24,7 @@ extension UIScrollView {
     }
     
     
-    private func setHeaderRefreher(_ newValue: EasyRefresherActivityHeader?) {
+    private func setHeaderRefreher(_ newValue: EasyRefresherHeader?) {
         headerRefesher?.removeFromSuperview()
         if let newValue = newValue {
             insertSubview(newValue, at: 0)
@@ -35,9 +35,9 @@ extension UIScrollView {
                                  .OBJC_ASSOCIATION_ASSIGN)
     }
     
-    private func getHeaderRefresher() -> EasyRefresherActivityHeader? {
+    private func getHeaderRefresher() -> EasyRefresherHeader? {
         objc_getAssociatedObject(self,
-                                 &EASY_HEADER_REFRESH_KEY) as? EasyRefresherActivityHeader
+                                 &EASY_HEADER_REFRESH_KEY) as? EasyRefresherHeader
 
     }
 }

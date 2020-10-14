@@ -16,6 +16,8 @@
 		F409D4512530344E008F8908 /* UIScrollView+Refresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409D4502530344E008F8908 /* UIScrollView+Refresher.swift */; };
 		F409D460253047A0008F8908 /* EasyActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409D45F253047A0008F8908 /* EasyActivityIndicatorView.swift */; };
 		F409D46525305AA3008F8908 /* EasyRefresherActivityHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F409D46425305AA3008F8908 /* EasyRefresherActivityHeader.swift */; };
+		F40F1DA92534287D002D9229 /* EasyRefresherDottedHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40F1DA82534287D002D9229 /* EasyRefresherDottedHeader.swift */; };
+		F40F1DAE253428C2002D9229 /* EasyRefresherHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40F1DAD253428C2002D9229 /* EasyRefresherHeader.swift */; };
 		F4B30EE625318EAF0033FA88 /* EasyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B30EE525318EAF0033FA88 /* EasyTimer.swift */; };
 		F4B30EEE2531998B0033FA88 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B30EED2531998B0033FA88 /* TestView.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +53,8 @@
 		F409D4502530344E008F8908 /* UIScrollView+Refresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Refresher.swift"; sourceTree = "<group>"; };
 		F409D45F253047A0008F8908 /* EasyActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyActivityIndicatorView.swift; sourceTree = "<group>"; };
 		F409D46425305AA3008F8908 /* EasyRefresherActivityHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRefresherActivityHeader.swift; sourceTree = "<group>"; };
+		F40F1DA82534287D002D9229 /* EasyRefresherDottedHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRefresherDottedHeader.swift; sourceTree = "<group>"; };
+		F40F1DAD253428C2002D9229 /* EasyRefresherHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRefresherHeader.swift; sourceTree = "<group>"; };
 		F4B30EE525318EAF0033FA88 /* EasyTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyTimer.swift; sourceTree = "<group>"; };
 		F4B30EED2531998B0033FA88 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -121,6 +125,8 @@
 				F409D4502530344E008F8908 /* UIScrollView+Refresher.swift */,
 				F409D45F253047A0008F8908 /* EasyActivityIndicatorView.swift */,
 				F409D46425305AA3008F8908 /* EasyRefresherActivityHeader.swift */,
+				F40F1DA82534287D002D9229 /* EasyRefresherDottedHeader.swift */,
+				F40F1DAD253428C2002D9229 /* EasyRefresherHeader.swift */,
 			);
 			path = EasyRefresher;
 			sourceTree = "<group>";
@@ -264,6 +270,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F409D4512530344E008F8908 /* UIScrollView+Refresher.swift in Sources */,
+				F40F1DAE253428C2002D9229 /* EasyRefresherHeader.swift in Sources */,
+				F40F1DA92534287D002D9229 /* EasyRefresherDottedHeader.swift in Sources */,
 				F409D460253047A0008F8908 /* EasyActivityIndicatorView.swift in Sources */,
 				F409D3EF252FF33D008F8908 /* ViewController.swift in Sources */,
 				F409D3EB252FF33D008F8908 /* AppDelegate.swift in Sources */,

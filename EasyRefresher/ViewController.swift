@@ -7,13 +7,22 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
     lazy var tableView = UITableView(frame: view.bounds, style: .plain)
-    
-    
+     
     var cellCount = 0
     
+    
+    
+    
+    var timer: EasyTimer!
+    
+    
+    var arr = [1, 2, 3, 4]
+
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         tableView.frame.origin.y = 50
         tableView.frame.size.height -= 50
@@ -22,15 +31,36 @@ class ViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
 
-        tableView.headerRefesher = EasyRefresherActivityHeader({
+        tableView.headerRefesher = EasyRefresherDottedHeader({
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 self.tableView.headerRefesher?.endRefreshing()
                 self.cellCount += 1
                 self.tableView.reloadData()
             }
         })
+//        tableView.headerRefesher?.beginRefreshing()
+//        tableView.isHidden = true
+        
+        
+        
         tableView.headerRefesher?.beginRefreshing()
+        
+        
+        tableView.headerRefesher?.backgroundColor = .orange
+
+
+        
+
+
     }
+    
+    
+    var value = CGFloat(0)
+    var aTrend = false
+    
+ 
+    
+    
     
 }
 
