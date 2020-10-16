@@ -12,6 +12,8 @@ typealias EasyRefresherAction = () -> ()
 
 class EasyRefresherHeader: UIView {
         
+    
+    var scrolled = CGFloat(0)
     weak var scrollView: UIScrollView?
     var insetTBeforeRefreshing: CGFloat = 0
     var offsetYBeforeDragging: CGFloat = 0

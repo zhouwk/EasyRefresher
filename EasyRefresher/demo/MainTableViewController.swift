@@ -14,8 +14,7 @@ class MainTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        print("???")
+    
         let controller = BaseDemoViewController()
         switch indexPath {
         case IndexPath(row: 0, section: 0):

@@ -145,10 +145,10 @@
 				F409D46425305AA3008F8908 /* EasyRefresherActivityHeader.swift */,
 				F40F1DA82534287D002D9229 /* EasyRefresherDottedHeader.swift */,
 				F43E5659253827AC006B011B /* EasyRefresherTextHeader.swift */,
-				F40F1DAD253428C2002D9229 /* EasyRefresherHeader.swift */,
-				F43E566125382B7A006B011B /* EasyRefresher.swift */,
 				F4DB164525392B8C00805FB4 /* EasyRefresherOverlayHeader.swift */,
 				F4DB164A25392E9900805FB4 /* EasyRefresherWaveHeader.swift */,
+				F40F1DAD253428C2002D9229 /* EasyRefresherHeader.swift */,
+				F43E566125382B7A006B011B /* EasyRefresher.swift */,
 			);
 			path = EasyRefresher;
 			sourceTree = "<group>";

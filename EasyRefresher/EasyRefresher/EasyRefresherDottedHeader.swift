@@ -19,8 +19,14 @@ class EasyRefresherDottedHeader: EasyRefresherHeader {
     lazy var dotC = createDotView(101)
     lazy var dots = [dotA, dotB, dotC]
     let dotHeight = CGFloat(10)
-    lazy var dotBottom = (EasyRefresherDefaultHeight - dotHeight) * 0.5
+    lazy var dotBottom = (frame.height - dotHeight) * 0.5
     
+
+    override init(_ action: @escaping EasyRefresherAction) {
+        super.init(action)
+        frame.size.height = 40
+    }
+        
     var animateTimer: CADisplayLink?
     
     override func beginRefreshing() {
@@ -31,7 +37,7 @@ class EasyRefresherDottedHeader: EasyRefresherHeader {
         state = .refreshing
         resizeDotViewsAnimated()
         UIView.animate(withDuration: 0.25) {
-            self.scrollView?.contentInset.top = self.insetTBeforeRefreshing + EasyRefresherDefaultHeight
+            self.scrollView?.contentInset.top = self.insetTBeforeRefreshing + self.frame.height
             self.updateStateUI()
         }
     }
@@ -54,8 +60,12 @@ class EasyRefresherDottedHeader: EasyRefresherHeader {
             return
         }
         insetTBeforeRefreshing = scrollView!.contentInset.top
-        let scrolled = scrollView!.contentOffset.y - offsetYBeforeDragging
-        if -scrolled > EasyRefresherDefaultHeight {
+        var top = scrollView!.contentInset.top
+        if #available(iOS 11.0, *) {
+            top += scrollView!.safeAreaInsets.top
+        }
+        scrolled = scrollView!.contentOffset.y + top
+        if -scrolled > frame.height {
             state = .willRefreshing
         } else if -scrolled > 0 {
             state = .pulling
@@ -67,34 +77,22 @@ class EasyRefresherDottedHeader: EasyRefresherHeader {
     
     
     override func updateStateUI() {
-        let scrolled = scrollView!.contentOffset.y - offsetYBeforeDragging
-        let selfY: CGFloat
-        let selfH: CGFloat
         let dotScaled: CGFloat
         if state == .idle {
-            selfH = 0
-            selfY = -insetTBeforeRefreshing
             dotScaled = 0
             removeDotViewsAnimtion()
         } else if state == .pulling {
-            selfH = min(-scrolled, EasyRefresherDefaultHeight)
-            selfY = -selfH - insetTBeforeRefreshing
             if -scrolled > dotBottom {
-                dotScaled = min(1, (-scrolled - dotBottom) / (EasyRefresherDefaultHeight - dotBottom) )
+                dotScaled = min(1, (-scrolled - dotBottom) / dotA.frame.maxY)
             } else {
                 dotScaled = 0
             }
             removeDotViewsAnimtion()
         } else {
-            selfH = EasyRefresherDefaultHeight
-            selfY = -EasyRefresherDefaultHeight - insetTBeforeRefreshing
             dotScaled = 1
             resizeDotViewsAnimated()
         }
-        frame.origin.y = selfY
-        frame.size.height = selfH
         resizeDotViewsUsingScale(dotScaled)
-        
     }
     
     /// 创建dotView
@@ -164,5 +162,16 @@ class EasyRefresherDottedHeader: EasyRefresherHeader {
         positionDotViews()
     }
     
+    
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        frame.size.height = frame.height
+        frame.origin.y = -frame.height
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 

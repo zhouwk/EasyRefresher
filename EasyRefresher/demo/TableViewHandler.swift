@@ -18,6 +18,7 @@ class TableViewHandler: NSObject {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         superView.addSubview(tableView)
         return tableView
     }

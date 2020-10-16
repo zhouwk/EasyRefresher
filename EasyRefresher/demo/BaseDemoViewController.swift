@@ -26,6 +26,8 @@ class BaseDemoViewController: UIViewController {
         view.backgroundColor = .white
         handler.controller = self
         initRefresherHeader()
+        
+        tableView.headerRefesher?.beginRefreshing()
     }
     
     

@@ -79,7 +79,7 @@ class EasyRefresherWaveHeader: EasyRefresherHeader {
             top += scrollView!.safeAreaInsets.top
         }
         insetTBeforeRefreshing = scrollView!.contentInset.top
-        let scrolled = scrollView!.contentOffset.y + top
+        scrolled = scrollView!.contentOffset.y + top
         if -scrolled >= 0 {
             if -scrolled >= selfHeight {
                 state = .willRefreshing
