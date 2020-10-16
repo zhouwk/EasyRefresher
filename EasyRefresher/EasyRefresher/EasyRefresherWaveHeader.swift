@@ -14,11 +14,7 @@ class EasyRefresherWaveHeader: EasyRefresherHeader {
     
     var backWave: WaveView!
     var frontWave: WaveView!
-    
-    
     let selfHeight = CGFloat(20)
-    
-    
     
     override init(_ action: @escaping EasyRefresherAction) {
         super.init(action)
@@ -78,8 +74,12 @@ class EasyRefresherWaveHeader: EasyRefresherHeader {
         if state == .refreshing {
             return
         }
+        var top = scrollView!.contentInset.top
+        if #available(iOS 11.0, *) {
+            top += scrollView!.safeAreaInsets.top
+        }
         insetTBeforeRefreshing = scrollView!.contentInset.top
-        let scrolled = scrollView!.contentOffset.y - offsetYBeforeDragging
+        let scrolled = scrollView!.contentOffset.y + top
         if -scrolled >= 0 {
             if -scrolled >= selfHeight {
                 state = .willRefreshing
@@ -91,7 +91,6 @@ class EasyRefresherWaveHeader: EasyRefresherHeader {
         }
         updateStateUI()
     }
-    
     
     override func updateStateUI() {
         if state == .refreshing || state == .willRefreshing {
