@@ -18,7 +18,7 @@ class EasyRefresherDottedHeader: EasyRefresherHeader {
     lazy var dotB = createDotView(100)
     lazy var dotC = createDotView(101)
     lazy var dots = [dotA, dotB, dotC]
-    let dotHeight = CGFloat(13)
+    let dotHeight = CGFloat(10)
     lazy var dotBottom = (EasyRefresherDefaultHeight - dotHeight) * 0.5
     
     var animateTimer: CADisplayLink?
@@ -162,7 +162,6 @@ class EasyRefresherDottedHeader: EasyRefresherHeader {
     override func layoutSubviews() {
         super.layoutSubviews()
         positionDotViews()
-        print(frame)
     }
     
 }

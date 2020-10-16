@@ -12,14 +12,10 @@ class ViewController: UIViewController {
     lazy var tableView = UITableView(frame: view.bounds, style: .plain)
      
     var cellCount = 0
+
     
     
-    
-    
-    var timer: EasyTimer!
-    
-    
-    var arr = [1, 2, 3, 4]
+    var timer: CADisplayLink!
 
     override func viewDidLoad() {
         
@@ -30,38 +26,17 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
-
-        tableView.headerRefesher = EasyRefresherDottedHeader({
+        
+        tableView.headerRefesher = EasyRefresherWaveHeader({
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                 self.tableView.headerRefesher?.endRefreshing()
                 self.cellCount += 1
                 self.tableView.reloadData()
             }
         })
-//        tableView.headerRefesher?.beginRefreshing()
-//        tableView.isHidden = true
-        
-        
-        
         tableView.headerRefesher?.beginRefreshing()
-        
-        
-        tableView.headerRefesher?.backgroundColor = .orange
-
-
-        
-
-
+        tableView.tableFooterView = UIView()
     }
-    
-    
-    var value = CGFloat(0)
-    var aTrend = false
-    
- 
-    
-    
-    
 }
 
 
@@ -86,12 +61,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
     }
 }
 

@@ -12,9 +12,6 @@ import UIKit
  */
 
 
-enum EasyRefresherstate {
-    case idle, pulling, willRefreshing, refreshing
-}
 
 /**
  * 默认样式

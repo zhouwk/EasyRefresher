@@ -15,7 +15,7 @@ class EasyRefresherHeader: UIView {
     weak var scrollView: UIScrollView?
     var insetTBeforeRefreshing: CGFloat = 0
     var offsetYBeforeDragging: CGFloat = 0
-    var state = EasyRefresherstate.idle {
+    var state = EasyRefresher.State.idle {
         didSet {
             if state == .refreshing {
                 action()
