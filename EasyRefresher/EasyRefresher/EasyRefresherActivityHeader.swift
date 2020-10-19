@@ -26,10 +26,6 @@ import UIKit
  */
 
 
-let EasyRefresherDefaultHeight = CGFloat(54)
-let EasyActivityDefaultHeight = CGFloat(30)
-
-
 class EasyRefresherActivityHeader: EasyRefresherHeader {
 
     lazy var activityView: EasyActivityIndicatorView = {
@@ -37,7 +33,12 @@ class EasyRefresherActivityHeader: EasyRefresherHeader {
         addSubview(activityView)
         return activityView
     }()
-    let activityViewBottom = EasyRefresherDefaultHeight - EasyActivityDefaultHeight
+    
+    let selfMaxHeight = CGFloat(45)
+    let activityMaxHeight = CGFloat(30)
+    lazy var activityViewBottom = selfMaxHeight - activityMaxHeight
+    
+    
         
     /// 进入刷新状态
     override func beginRefreshing() {
@@ -46,9 +47,11 @@ class EasyRefresherActivityHeader: EasyRefresherHeader {
             return
         }
         state = .refreshing
-        UIView.animate(withDuration: 0.25) {
-            self.scrollView!.contentInset.top = self.insetTBeforeRefreshing + EasyRefresherDefaultHeight
-            self.updateStateUI()
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.25) {
+                self.scrollView!.contentInset.top += self.selfMaxHeight
+                self.updateStateUI()
+            }
         }
     }
 
@@ -59,9 +62,11 @@ class EasyRefresherActivityHeader: EasyRefresherHeader {
             return
         }
         state = .idle
-        UIView.animate(withDuration: 0.25) {
-            self.scrollView!.contentInset.top = self.insetTBeforeRefreshing
-            self.updateStateUI()
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.25) {
+                self.scrollView!.contentInset.top -= self.selfMaxHeight
+                self.updateStateUI()
+            }
         }
     }
     
@@ -70,9 +75,12 @@ class EasyRefresherActivityHeader: EasyRefresherHeader {
         if state == .refreshing {
             return
         }
-        insetTBeforeRefreshing = scrollView!.contentInset.top
-        let scrolled = offset.y - offsetYBeforeDragging
-        if -scrolled >= EasyRefresherDefaultHeight {
+        var insetT = scrollView!.contentInset.top
+        if #available(iOS 11.0, *) {
+            insetT += scrollView!.safeAreaInsets.top
+        }
+        scrolled = offset.y + insetT
+        if -scrolled >= selfMaxHeight {
             state = .willRefreshing
         } else if -scrolled >= 0 {
             state = .pulling
@@ -85,39 +93,28 @@ class EasyRefresherActivityHeader: EasyRefresherHeader {
     /// 更新状态UI
     override func updateStateUI() {
         super.updateStateUI()
-        let scrolled = scrollView!.contentOffset.y - offsetYBeforeDragging
         let activityScaled: CGFloat
-        let selfY: CGFloat
         let selfH: CGFloat
 
         if state == .idle {
             activityScaled = 0
-            selfY = -scrollView!.contentInset.top
             selfH = 0
         } else if state == .pulling {
             if -scrolled <= activityViewBottom {
                 activityScaled = 0
             } else {
-                activityScaled = (-scrolled - activityViewBottom) / EasyActivityDefaultHeight
+                activityScaled = (-scrolled - activityViewBottom) / activityMaxHeight
             }
-            selfY = scrolled - scrollView!.contentInset.top
             selfH = -scrolled
         } else {
             activityScaled = 1
-            selfY = -EasyRefresherDefaultHeight - insetTBeforeRefreshing
-            selfH = EasyRefresherDefaultHeight
+            selfH = selfMaxHeight
         }
-        activityView.frame.size = CGSize(width: EasyActivityDefaultHeight * activityScaled,
-                                         height: EasyActivityDefaultHeight * activityScaled)
-        activityView.drawUsingScale(activityScaled)
+        activityView.frame.size = CGSize(width: activityMaxHeight * activityScaled,
+                                         height: activityMaxHeight * activityScaled)
+        activityView.drawUsingScale(activityScaled, length: activityMaxHeight)
         frame.size.height = selfH
-        frame.origin.y = selfY
-    }
-    
-    
-    override func scrollViewFrameDidChange(_ sFrame: CGRect) {
-        super.scrollViewFrameDidChange(sFrame)
-        frame.size.height = EasyRefresherDefaultHeight
+        frame.origin.y = -selfH
     }
     
     override func layoutSubviews() {

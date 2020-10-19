@@ -11,7 +11,7 @@ import UIKit
 
 
 class TableViewHandler: NSObject {
-    var itemCount = 0
+    var itemCount = 5
     weak var controller: UIViewController?
     func buildIn(_ superView: UIView, frame: CGRect) -> UITableView {
         let tableView = UITableView(frame: frame, style: .plain)
@@ -45,7 +45,10 @@ extension TableViewHandler: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        controller?.dismiss(animated: true, completion: nil)
+//        controller?.dismiss(animated: true, completion: nil)
+        
+        
+        print(tableView.contentInset.top)
     }
 }
 

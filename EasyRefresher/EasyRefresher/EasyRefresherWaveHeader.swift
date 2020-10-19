@@ -51,9 +51,11 @@ class EasyRefresherWaveHeader: EasyRefresherHeader {
             return
         }
         state = .refreshing
-        UIView.animate(withDuration: 0.25) {
-            self.scrollView!.contentInset.top = self.insetTBeforeRefreshing + self.selfHeight
-            self.updateStateUI()
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.25) {
+                self.scrollView!.contentInset.top += self.selfHeight
+                self.updateStateUI()
+            }
         }
     }
     
@@ -63,9 +65,11 @@ class EasyRefresherWaveHeader: EasyRefresherHeader {
             return
         }
         state = .idle
-        UIView.animate(withDuration: 0.25) {
-            self.scrollView!.contentInset.top = self.insetTBeforeRefreshing
-            self.updateStateUI()
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.25) {
+                self.scrollView!.contentInset.top -= self.selfHeight
+                self.updateStateUI()
+            }
         }
     }
     
@@ -78,7 +82,6 @@ class EasyRefresherWaveHeader: EasyRefresherHeader {
         if #available(iOS 11.0, *) {
             top += scrollView!.safeAreaInsets.top
         }
-        insetTBeforeRefreshing = scrollView!.contentInset.top
         scrolled = scrollView!.contentOffset.y + top
         if -scrolled >= 0 {
             if -scrolled >= selfHeight {

@@ -49,6 +49,7 @@ class EasyRefresherHeader: UIView {
 
     /// scrollView frame 发生改变
     func scrollViewFrameDidChange(_ sFrame: CGRect) {
+        print("----", sFrame)
         frame.size.width = sFrame.width
     }
 

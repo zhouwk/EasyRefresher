@@ -35,10 +35,12 @@ class EasyRefresherDottedHeader: EasyRefresherHeader {
             return
         }
         state = .refreshing
-        resizeDotViewsAnimated()
-        UIView.animate(withDuration: 0.25) {
-            self.scrollView?.contentInset.top = self.insetTBeforeRefreshing + self.frame.height
-            self.updateStateUI()
+        DispatchQueue.main.async {
+            self.resizeDotViewsAnimated()
+            UIView.animate(withDuration: 0.25) {
+                self.scrollView?.contentInset.top += self.frame.height
+                self.updateStateUI()
+            }
         }
     }
     
@@ -48,8 +50,10 @@ class EasyRefresherDottedHeader: EasyRefresherHeader {
             return
         }
         state = .idle
-        UIView.animate(withDuration: 0.25) {
-            self.scrollView?.contentInset.top = self.insetTBeforeRefreshing
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: 0.25) {
+                self.scrollView?.contentInset.top -= self.frame.height
+            }
         }
     }
     
@@ -59,7 +63,7 @@ class EasyRefresherDottedHeader: EasyRefresherHeader {
         if state == .refreshing {
             return
         }
-        insetTBeforeRefreshing = scrollView!.contentInset.top
+        
         var top = scrollView!.contentInset.top
         if #available(iOS 11.0, *) {
             top += scrollView!.safeAreaInsets.top

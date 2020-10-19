@@ -52,9 +52,9 @@ class EasyActivityIndicatorView: UIView {
     }
 
     
-    func drawUsingScale(_ scale: CGFloat) {
-        frame.size.width = scale * EasyActivityDefaultHeight
-        frame.size.height = scale * EasyActivityDefaultHeight
+    func drawUsingScale(_ scale: CGFloat, length: CGFloat) {
+        frame.size.width = scale * length
+        frame.size.height = scale * length
         inRadius = 7 * scale
         outRadius = frame.width * 0.5 - 3
         if scale == 1 {
