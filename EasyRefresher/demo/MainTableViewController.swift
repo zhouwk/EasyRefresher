@@ -23,11 +23,13 @@ class MainTableViewController: UITableViewController {
             controller.headerStyle = .dots
         case IndexPath(row: 2, section: 0):
             controller.headerStyle = .wave
+        case IndexPath(row: 3, section: 0):
+            controller.headerStyle = .text
         default:
             print("-")
         }
-        controller.modalPresentationStyle = .custom
-        present(controller, animated: true, completion: nil)
-//        navigationController?.pushViewController(controller, animated: true)
+//        controller.modalPresentationStyle = .custom
+//        present(controller, animated: true, completion: nil)
+        navigationController?.pushViewController(controller, animated: true)
     }
 }

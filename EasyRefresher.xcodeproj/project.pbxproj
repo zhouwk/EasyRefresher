@@ -24,6 +24,7 @@
 		F43E565525382030006B011B /* WaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43E565425382030006B011B /* WaveView.swift */; };
 		F43E565A253827AC006B011B /* EasyRefresherTextHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43E5659253827AC006B011B /* EasyRefresherTextHeader.swift */; };
 		F43E566225382B7A006B011B /* EasyRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43E566125382B7A006B011B /* EasyRefresher.swift */; };
+		F4967FF7253D841E000D9CBB /* DemoTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4967FF6253D841E000D9CBB /* DemoTableView.swift */; };
 		F4B30EE625318EAF0033FA88 /* EasyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B30EE525318EAF0033FA88 /* EasyTimer.swift */; };
 		F4B30EEE2531998B0033FA88 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B30EED2531998B0033FA88 /* TestView.swift */; };
 		F4DB164625392B8C00805FB4 /* EasyRefresherOverlayHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DB164525392B8C00805FB4 /* EasyRefresherOverlayHeader.swift */; };
@@ -69,6 +70,7 @@
 		F43E565425382030006B011B /* WaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveView.swift; sourceTree = "<group>"; };
 		F43E5659253827AC006B011B /* EasyRefresherTextHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRefresherTextHeader.swift; sourceTree = "<group>"; };
 		F43E566125382B7A006B011B /* EasyRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRefresher.swift; sourceTree = "<group>"; };
+		F4967FF6253D841E000D9CBB /* DemoTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoTableView.swift; sourceTree = "<group>"; };
 		F4B30EE525318EAF0033FA88 /* EasyTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EasyTimer.swift; sourceTree = "<group>"; };
 		F4B30EED2531998B0033FA88 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		F4DB164525392B8C00805FB4 /* EasyRefresherOverlayHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyRefresherOverlayHeader.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				F40B8592253970AD00956E4A /* MainTableViewController.swift */,
 				F40B859D2539718200956E4A /* TableViewHandler.swift */,
 				F40B85B02539743500956E4A /* BaseDemoViewController.swift */,
+				F4967FF6253D841E000D9CBB /* DemoTableView.swift */,
 			);
 			path = demo;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				F409D460253047A0008F8908 /* EasyActivityIndicatorView.swift in Sources */,
 				F4DB164B25392E9900805FB4 /* EasyRefresherWaveHeader.swift in Sources */,
 				F409D3EF252FF33D008F8908 /* ViewController.swift in Sources */,
+				F4967FF7253D841E000D9CBB /* DemoTableView.swift in Sources */,
 				F43E566225382B7A006B011B /* EasyRefresher.swift in Sources */,
 				F409D3EB252FF33D008F8908 /* AppDelegate.swift in Sources */,
 				F40B859E2539718200956E4A /* TableViewHandler.swift in Sources */,
@@ -495,7 +499,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LR5U6RACV8;
 				INFOPLIST_FILE = EasyRefresher/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -515,7 +519,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LR5U6RACV8;
 				INFOPLIST_FILE = EasyRefresher/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

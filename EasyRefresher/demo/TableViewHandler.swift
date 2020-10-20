@@ -14,7 +14,7 @@ class TableViewHandler: NSObject {
     var itemCount = 5
     weak var controller: UIViewController?
     func buildIn(_ superView: UIView, frame: CGRect) -> UITableView {
-        let tableView = UITableView(frame: frame, style: .plain)
+        let tableView = DemoTableView(frame: frame, style: .plain)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.delegate = self
         tableView.dataSource = self

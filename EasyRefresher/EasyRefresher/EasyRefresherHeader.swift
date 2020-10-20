@@ -12,11 +12,9 @@ typealias EasyRefresherAction = () -> ()
 
 class EasyRefresherHeader: UIView {
         
-    
     var scrolled = CGFloat(0)
     weak var scrollView: UIScrollView?
-    var insetTBeforeRefreshing: CGFloat = 0
-    var offsetYBeforeDragging: CGFloat = 0
+    var pan: UIPanGestureRecognizer?
     var state = EasyRefresher.State.idle {
         didSet {
             if state == .refreshing {
@@ -49,33 +47,34 @@ class EasyRefresherHeader: UIView {
 
     /// scrollView frame 发生改变
     func scrollViewFrameDidChange(_ sFrame: CGRect) {
-        print("----", sFrame)
         frame.size.width = sFrame.width
     }
 
-
-    override func didMoveToSuperview() {
-        superview?.didMoveToSuperview()
-        superviewMustBeScrollView()
+    
+    override func willMove(toSuperview newSuperview: UIView?) {
+        removeOvserves()
+        super.willMove(toSuperview: newSuperview)
+        guard newSuperview != nil else {
+            return
+        }
+        assert(newSuperview is UIScrollView, "必须是UIScrollView(或者子类)")
+        scrollView = newSuperview as? UIScrollView
         addObserves()
     }
-    
-    
-    /// 父组件必须是UIScrollView(包含子类)
-    func superviewMustBeScrollView() {
-        scrollView = superview as? UIScrollView
-        let isScrollView = superview == nil || superview != nil && superview is UIScrollView
-        assert(isScrollView, "必须是UIScrollView(或者子类)")
-        insetTBeforeRefreshing = scrollView!.contentInset.top
-        frame.origin.y = -insetTBeforeRefreshing
-    }
-    
+
     /// 注册监听
     func addObserves() {
         scrollView?.addObserver(self, forKeyPath: "contentOffset", options: .new, context: nil)
         scrollView?.addObserver(self, forKeyPath: "frame", options: [.initial, .new], context: nil)
-        let pan = scrollView?.panGestureRecognizer
+        pan = scrollView?.panGestureRecognizer
         pan?.addObserver(self, forKeyPath: "state", options: .new, context: nil)
+    }
+    
+    /// 移除监听(iOS 11之后不再需)
+    func removeOvserves() {
+        superview?.removeObserver(self, forKeyPath: "contentOffset")
+        superview?.removeObserver(self, forKeyPath: "frame")
+        pan?.removeObserver(self, forKeyPath: "state")
     }
     
     
@@ -98,13 +97,16 @@ class EasyRefresherHeader: UIView {
     
     /// scrollView 拖拽手势状态 发生改变
     func panStateDidChange(_ state: UIGestureRecognizer.State) {
-        if state == .began {
-            offsetYBeforeDragging = scrollView!.contentOffset.y
-        } else if state == .ended {
+        if state == .ended {
             if self.state == .willRefreshing {
-                self.beginRefreshing()
+                beginRefreshing()
             }
         }
+    }
+    
+    
+    deinit {
+        print(self, "deinit")
     }
 }
 
